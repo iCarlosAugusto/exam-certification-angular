@@ -6,7 +6,6 @@ import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgClass } from '@angular/common';
 import { CommonModule } from '@angular/common';
-import classNames from 'classnames';
 
 @Component({
   selector: 'app-authentication',
