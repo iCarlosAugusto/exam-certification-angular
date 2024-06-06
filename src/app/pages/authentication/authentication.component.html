@@ -18,17 +18,23 @@
         </div>
         <span>ou</span>
 
-        <form class="flex flex-col w-full">
-            <mat-form-field class="w-full">
-              <mat-label>E-mail ou número de celular</mat-label>
-              <input matInput>
-            </mat-form-field>
-            <mat-form-field class="w-full">
-                <mat-label>Senha</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <span class="text-blue-500 cursor-pointer">Esqueceu a senha?</span>
-            <button mat-flat-button color="primary" class="mb-5">Entrar</button>
+        <form class="flex flex-col w-full" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="emailInput" class="font-bold text-gray-300" [ngStyle]="{'color': emailError && '#913831'}">Email * {{emailError && '-'}} {{emailError}}</label>
+                <mat-form-field class="w-full">
+                  <input matInput formControlName="email" id="emailInput"/>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <label for="passwordInput" class="font-bold text-gray-300" [ngStyle]="{'color': passwordError && '#913831'}">Senha * {{passwordError && '-'}} {{passwordError}}</label>
+                <mat-form-field class="w-full">
+                    <input matInput formControlName="password" id="passwordInput"/>
+                </mat-form-field>
+            </div>
+
+            <span class="text-blue-500 cursor-pointer" (click)="forgotPassword()">Esqueceu a senha?</span>
+            <button mat-flat-button color="primary" class="mb-5" [disabled]="!userForm.valid">Entrar</button>
             <div>
                 <span>Ainda não tem uma conta?</span>
                 <a class="text-blue-500 cursor-pointer" routerLink="signup"> Registre-se agora!</a>
