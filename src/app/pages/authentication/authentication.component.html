@@ -22,14 +22,14 @@
             <div>
                 <label for="emailInput" class="font-bold text-gray-300" [ngStyle]="{'color': emailError && '#913831'}">Email * {{emailError && '-'}} {{emailError}}</label>
                 <mat-form-field class="w-full">
-                  <input matInput formControlName="email" id="emailInput"/>
+                  <input matInput formControlName="email" id="emailInput" type="email"/>
                 </mat-form-field>
             </div>
 
             <div>
                 <label for="passwordInput" class="font-bold text-gray-300" [ngStyle]="{'color': passwordError && '#913831'}">Senha * {{passwordError && '-'}} {{passwordError}}</label>
                 <mat-form-field class="w-full">
-                    <input matInput formControlName="password" id="passwordInput"/>
+                    <input matInput formControlName="password" id="passwordInput" type="password"/>
                 </mat-form-field>
             </div>
 
