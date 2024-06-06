@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule, PageEvent} from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pagination',
@@ -9,4 +10,14 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 })
 export class PaginationComponent {
 
+  constructor(private router: Router) {}
+
+  onPageChange(event: PageEvent) {
+    this.router.navigate([], {
+      queryParams: {
+        page: event.pageIndex
+      },
+      queryParamsHandling: 'merge'
+    });
+  }
 }
